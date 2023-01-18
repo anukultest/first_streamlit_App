@@ -1,6 +1,9 @@
 import streamlit as st 
 import pandas
 
+import requests
+
+
 st.header("Hello world !")
 st.title ("My Parents Restaurant")
 st.text ("\U0001F601 Poha")
@@ -12,7 +15,6 @@ fruits_to_show = my_fruit_list.loc[fruits_selected]
 
 st.dataframe(fruits_to_show)
 
-import requests
 fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon")
-streamlit.text(fruityvice_response)
+streamlit.text(fruityvice_response.joson())
 
