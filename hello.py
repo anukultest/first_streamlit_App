@@ -32,5 +32,5 @@ my_cur = my_cnx.cursor()
 my_cur.execute("SELECT * from fruit_load_list")
 my_data_row = my_cur.fetchone()
 
-st.dataframe(my_data_row)
+st.text(my_data_row)
 
