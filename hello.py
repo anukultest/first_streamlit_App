@@ -4,7 +4,7 @@ import pandas
 import requests
 
 
-st.header("Hello world !")
+
 st.title ("My Parents Restaurant")
 st.text ("\U0001F601 Poha")
 st.text ("Upama")
