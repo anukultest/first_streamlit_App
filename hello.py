@@ -35,4 +35,4 @@ my_data_row = my_cur.fetchall()
 st.dataframe(my_data_row)
 
 fruit_to_add = st.text_input('What fruit would you like to add ')
- st.write('The user wants to add  ', fruit_choice)
+st.write('The user wants to add  ', fruit_to_add)
