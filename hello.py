@@ -2,6 +2,8 @@ import streamlit as st
 import pandas
 
 import requests
+import snowflake.connector
+from urllist.error import URLError
 
 
 
@@ -26,7 +28,8 @@ fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
 # write your own comment - what does this do?
 st.dataframe(fruityvice_normalized)
 
-import snowflake.connector
+st.stop()
+#import snowflake.connector
 my_cnx = snowflake.connector.connect(**st.secrets["snowflake"])
 my_cur = my_cnx.cursor()
 my_cur.execute("SELECT * from fruit_load_list")
