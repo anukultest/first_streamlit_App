@@ -50,6 +50,7 @@ def get_fruit_load_list():
 if st.button ('Get Fruit load list '):
   my_cnx = snowflake.connector.connect(**st.secrets["snowflake"])
   my_data_rows = get_fruit_load_list()
+  my_cnx.close()
   st.dataframe (my_data_rows)
   
 #import snowflake.connector
@@ -63,6 +64,7 @@ if st.button ('Get Fruit load list '):
 def insert_row_snowflake(new_fruit):
   with my_cnx.cursor() as my_cur:
     my_cur.execute("insert into fruit_load_list values ('"+  fruit_to_add  +"')" )
+    my_cnx.close()
     return 'thanks fro adding' +  new_fruit 
   
 fruit_to_add = st.text_input('What fruit would you like to add ')
