@@ -42,14 +42,23 @@ except URLError as e:
 # write your own comment - what does this do?
 #st.dataframe(fruityvice_normalized)
 
-st.stop()
+def get_fruit_load_list():
+  with my_cnx.cursor() as my_cur:
+    my_cur.execute("SELECT * from fruit_load_list")
+    return my_cur.fetchall()
+  
+if st.button ('Get Fruit load list '):
+  my_cnx = snowflake.connector.connect(**st.secrets["snowflake"])
+  my_data_rowss = get_fruit_load_list()
+  st.dataframe (my_data_rows)
+  
 #import snowflake.connector
-my_cnx = snowflake.connector.connect(**st.secrets["snowflake"])
-my_cur = my_cnx.cursor()
-my_cur.execute("SELECT * from fruit_load_list")
-my_data_row = my_cur.fetchall()
+#my_cnx = snowflake.connector.connect(**st.secrets["snowflake"])
+#my_cur = my_cnx.cursor()
+#my_cur.execute("SELECT * from fruit_load_list")
+#my_data_row = my_cur.fetchall()
 
-st.dataframe(my_data_row)
+#st.dataframe(my_data_row)
 
 fruit_to_add = st.text_input('What fruit would you like to add ')
 st.write('The user wants to add  ', fruit_to_add)
