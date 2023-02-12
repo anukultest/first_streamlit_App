@@ -49,7 +49,7 @@ def get_fruit_load_list():
   
 if st.button ('Get Fruit load list '):
   my_cnx = snowflake.connector.connect(**st.secrets["snowflake"])
-  my_data_rowss = get_fruit_load_list()
+  my_data_rows = get_fruit_load_list()
   st.dataframe (my_data_rows)
   
 #import snowflake.connector
